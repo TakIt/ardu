@@ -1,2 +1,2 @@
-"# ardu"
-View code タップ　Arduino  にコード
+"# ardu"</break>
+スマホから　View code タップ　Arduino  にコード
