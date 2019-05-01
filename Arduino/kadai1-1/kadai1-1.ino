@@ -18,18 +18,11 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  //swv=digitalRead(SW_PIN);
-/**
-  if(swv==HIGH){
-    state =! state;
-  }
-*/
   if(digitalRead(2)==LOW){
   digitalWrite(LED_BUILTIN,HIGH);
-  delay(1000);
+  delay(5);
   digitalWrite(LED_BUILTIN,LOW);
-  delay(1000);
+  delay(15);
   }else{
     digitalWrite(LED_BUILTIN,LOW);
   }

@@ -6,31 +6,32 @@
 #include <FirmataParser.h>
 
 #define LED_BUILTIN 13
-#define SW_PIN 2
-
-//int swv = 0;
-boolean state=false;
+#define anlg A0
 
 void setup() {
   // put your setup code here, to run once:
   pinMode(LED_BUILTIN,OUTPUT);
-  pinMode(SW_PIN,INPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  //swv=digitalRead(SW_PIN);
-/**
-  if(swv==HIGH){
-    state =! state;
-  }
-*/
-  if(digitalRead(2)==LOW){
+  int i=analogRead(anlg);
+  float f = i * 5.0/1023.0;
+  Serial.println(f);
+  if(f>=4){
   digitalWrite(LED_BUILTIN,HIGH);
-  delay(19);
-    
+  delay(15);
   digitalWrite(LED_BUILTIN,LOW);
-  delay(1);
+  delay(5);
+  }else if(f<4&&f>2){
+      digitalWrite(LED_BUILTIN,HIGH);
+  delay(10);
+  digitalWrite(LED_BUILTIN,LOW);
+  delay(10);
+  }else if(f<=2){
+      digitalWrite(LED_BUILTIN,HIGH);
+  delay(5);
+  digitalWrite(LED_BUILTIN,LOW);
+  delay(15);
   }else{
     digitalWrite(LED_BUILTIN,LOW);
   }

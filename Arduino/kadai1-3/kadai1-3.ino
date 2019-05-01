@@ -43,7 +43,7 @@ label1:
         delay(5000);
         break;
       case 'H':
-        analogWrite(LED_BUILTIN,127);
+        analogWrite(LED_BUILTIN,50);
         Serial.print((char)val);
         Serial.println("= LED-on Half");
         delay(5000);
