@@ -66,31 +66,31 @@ label1:
         delay(5000);
         break;
         case 8:
-        analogWrite(LED_BUILTIN,127);
-        Serial.print(recv_data);
-        Serial.println("= LED");
-        delay(5000);
-        break;
-        case 7:
         analogWrite(LED_BUILTIN,204);
         Serial.print(recv_data);
         Serial.println("= LED");
         delay(5000);
         break;
-        case 6:
+        case 7:
         analogWrite(LED_BUILTIN,178);
         Serial.print(recv_data);
         Serial.println("= LED");
         delay(5000);
         break;
-        case 5:
+        case 6:
         analogWrite(LED_BUILTIN,153);
         Serial.print(recv_data);
         Serial.println("= LED");
         delay(5000);
         break;
-        case 4:
+        case 5:
         analogWrite(LED_BUILTIN,127);
+        Serial.print(recv_data);
+        Serial.println("= LED");
+        delay(5000);
+        break;
+        case 4:
+        analogWrite(LED_BUILTIN,102);
         Serial.print(recv_data);
         Serial.println("= LED");
         delay(5000);
