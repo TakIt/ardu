@@ -18,6 +18,8 @@ void setup() {
 
 void loop() {
   byte data_size = Serial.available();
+  int sensorValue = analogRead(A0);
+  sensorValue=sensorValue/4;
  
   byte buf[data_size], degree = 1;
   long recv_data = 0, dub = 1;
@@ -57,66 +59,77 @@ label1:
         analogWrite(LED_BUILTIN,255);
         Serial.write(recv_data);
         Serial.println(" LED-on FULL");
+         Serial.println(sensorValue);
         delay(5000);
         break;
       case 9:
         analogWrite(LED_BUILTIN,229);
         Serial.print(recv_data);
         Serial.println("= LED");
+         Serial.println(sensorValue);
         delay(5000);
         break;
         case 8:
         analogWrite(LED_BUILTIN,204);
         Serial.print(recv_data);
         Serial.println("= LED");
+         Serial.println(sensorValue);
         delay(5000);
         break;
         case 7:
         analogWrite(LED_BUILTIN,178);
         Serial.print(recv_data);
         Serial.println("= LED");
+         Serial.println(sensorValue);
         delay(5000);
         break;
         case 6:
         analogWrite(LED_BUILTIN,153);
         Serial.print(recv_data);
         Serial.println("= LED");
+         Serial.println(sensorValue);
         delay(5000);
         break;
         case 5:
         analogWrite(LED_BUILTIN,127);
         Serial.print(recv_data);
         Serial.println("= LED");
+         Serial.println(sensorValue);
         delay(5000);
         break;
         case 4:
         analogWrite(LED_BUILTIN,102);
         Serial.print(recv_data);
         Serial.println("= LED");
+         Serial.println(sensorValue);
         delay(5000);
         break;
         case 3:
         analogWrite(LED_BUILTIN,76);
         Serial.print(recv_data);
-        Serial.println("= LED");
+        Serial.println("= LED"); 
+        Serial.println(sensorValue);
         delay(5000);
         break;
         case 2:
         analogWrite(LED_BUILTIN,51);
         Serial.print(recv_data);
         Serial.println("= LED");
+         Serial.println(sensorValue);
         delay(5000);
         break;
         case 1:
         analogWrite(LED_BUILTIN,25);
         Serial.print(recv_data);
         Serial.println("= LED");
+         Serial.println(sensorValue);
         delay(5000);
         break;
       case 0:
         analogWrite(LED_BUILTIN,0);
         Serial.write(recv_data);
         Serial.println("= LED-OFF");
+         Serial.println(sensorValue);
         break;
       default :
         Serial.println("End of routine");
