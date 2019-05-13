@@ -14,44 +14,36 @@ boolean state=false;
 
 void setup() {
   pinMode(LED_BUILTIN,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(11,OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
   int sensorValue = analogRead(A0);
   Serial.println(sensorValue);
-  delay(1);    
-  if(sensorValue != -1){
-  Serial.println(sensorValue);
+  analogWrite(11,LOW);
+  analogWrite(12,LOW);
+  analogWrite(LED_BUILTIN,LOW);
+  delay(1);
   
-  if(Serial.available()>0);{
-
-    if(sensorValue>=125){
+    if(sensorValue>=800){
         analogWrite(11,255);
-        Serial.write(sensorValue);
-        Serial.println(" LED-on FULL");
+        Serial.println(" LED-on Green");
         delay(5000);
-    }else if(sensorValue<125||sensorValue>=50){
-        analogWrite(9,127);
-        Serial.print(sensorValue);
-        Serial.println("= LED-on Half");
+    }else if(sensorValue<800&&sensorValue>=500){
+        analogWrite(12,255);
+        Serial.println("= LED-on Yellow");
         delay(5000);
-    }else if(sensorValue>0||sensorValue<50){
-        analogWrite(5,0);
-        Serial.write(sensorValue);
-        Serial.println("= LED-OFF");
-    }else if(sensorValue=0){
-      for(int i = 0;i<5;i++){
-      analogWrite(LED_BUILTIN,HIGH);
-      delay(1000);
-      analogWrite(LED_BUILTIN,LOW);
-      delay(1000);
-      }
+    }else if(sensorValue<500&&sensorValue>200){
+        analogWrite(LED_BUILTIN,255);
+        Serial.println("= LED-on RED");
+        delay(5000);
     }else{
-      Serial.println("End of routine");
+      analogWrite(11,255);
+      analogWrite(12,255);
+      analogWrite(LED_BUILTIN,255);
+      Serial.println("=LED-ON FULL");
+      delay(5000);
+      }
     }
-  }
-}else{
-    Serial.println("End of program");
-    delay(3000);
-}
-}
