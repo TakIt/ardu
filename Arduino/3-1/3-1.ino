@@ -19,6 +19,7 @@ void loop() {
   Duration=pulseIn(echoPin,HIGH);
   if(Duration>0){
     Duration=Duration/2;
+    //距離に変換
     Distance=Duration*340*100/1000000;
     Serial.print("Distance=");
     Serial.print(Distance);

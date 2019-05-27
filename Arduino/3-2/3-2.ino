@@ -7,13 +7,14 @@ void setup() {
 }
 
 void loop() {
-  //距離から電圧値を取得
+  //距離から電圧値の数値を取得
   float Distance=analogRead(pin);
-  //0～1023で取得した値を0～250までにする
+  //0～1023で取得した値を0～255までにする
   Distance=map(Distance,0,1023,0,255);
+  //数値から距離に変換
   float kyori=map(Distance,55,220,50,4);
   Serial.println(kyori);
-  //電圧値を５Vから０Vに変換
+  //数値を電圧値に変換
   Distance=Distance*5.0/255.0;
   Serial.println(Distance);
   Serial.println("");
